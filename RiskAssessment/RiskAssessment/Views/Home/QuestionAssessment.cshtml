@@ -1,0 +1,79 @@
+﻿@model RiskAssessment.Models.QuestionModel
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="Question-section">@(Model.QuestionSection)</div>
+        <div class="Question-number">Question :@(Model.QuestionNumber)</div>
+    </div>
+</div>
+
+@{
+    var totalQuestion = Model.TotalQuestionNo;
+}
+
+
+<div class="row">
+    <div class="col-md-10">
+        <table>
+            <tr>
+                <td><a href="javascription:viod(0);" class="btn btn-primary" onclick="saveBackward(this);">|<< Save & Previous</a></td>
+
+                @for (int i = 0; i < totalQuestion; i++)
+                {
+                    @*<td><a href=" @Url.Action("QuestionAssessment", "Home", new {@SessionID = Session["SessionID"], @qno=(i+1) })">@(i+1)</a></td>*@
+                    <a href="@Url.Action("QuestionAssessment","Home",new { @SessionID = Session["SessionID"], @qno = (i + 1) })" class="btn @(Model.QuestionNumber == (i + 1) ? "btn-primary": "btn-default")">@(i + 1)</a>
+                }
+
+                <td><a href="javascription:viod(0);" class="btn btn-primary" onclick="saveForward(this);">Save & Next >>|</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <p>
+        <br />
+        @Html.Raw(Model.Question ?? "")
+    </p>
+
+</div>
+
+<br />
+<br />
+
+<div class="row">
+
+
+    @if (Model.QuestionType == "Radio")
+    {
+        <ul class="js_choices">
+            @for (int i = 0; i < Model.options.Count; i++)
+            {
+                <li>
+                    <input type="hidden" anme="UserReponse[@i].IsChecked" value="@(Model.options[i].responseID)" />
+                    <input type="radio" name="UserReponse[@i].IsChecked" />@(Model.options[i].response)
+                </li>
+            }
+        </ul>
+
+    }
+
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            $('ul.js_choices li input[type="radio"]').on('click', function () {
+                var parentul = $(this).closest('ul.js_choices');
+                $.each(parentul.find('input[type="radio"][name!="' + $(this).attr('name') + '"]:checked'), function (i, e) {
+                    $(e).prop('checked', false);
+                });
+            });
+        })
+
+    </script>
+}
+

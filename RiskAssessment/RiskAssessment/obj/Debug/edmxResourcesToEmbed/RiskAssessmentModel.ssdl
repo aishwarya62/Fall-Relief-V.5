@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fall_reliefModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_RiskAss_Assessment">
+    <Key>
+      <PropertyRef Name="AssessmentTypeID" />
+    </Key>
+    <Property Name="AssessmentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssessmentType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="TotalNoOfQuestions" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_RiskAss_AssQuestion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssessmentTypeID" Type="int" Nullable="false" />
+    <Property Name="QuestionID" Type="int" Nullable="false" />
+    <Property Name="QuestionNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_RiskAss_Questions">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionSection" Type="nvarchar" MaxLength="50" />
+    <Property Name="Question" Type="nvarchar" MaxLength="500" />
+    <Property Name="AnswerType" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_RiskAss_ResponseChoice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionID" Type="int" Nullable="false" />
+    <Property Name="Response" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RiskScore" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_RiskAss_Session">
+    <Key>
+      <PropertyRef Name="AssessmentNo" />
+    </Key>
+    <Property Name="AssessmentNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sessionID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="timeStamp" Type="datetime" Nullable="false" />
+    <Property Name="AssessmentTypeID" Type="int" Nullable="false" />
+    <Property Name="sessionToken" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Risk_Ass___Quest__1CBC4616">
+    <End Role="tbl_RiskAss_Questions" Type="Self.tbl_RiskAss_Questions" Multiplicity="1" />
+    <End Role="tbl_RiskAss_ResponseChoice" Type="Self.tbl_RiskAss_ResponseChoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_RiskAss_Questions">
+        <PropertyRef Name="QuestionID" />
+      </Principal>
+      <Dependent Role="tbl_RiskAss_ResponseChoice">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_RiskA__Asses__151B244E">
+    <End Role="tbl_RiskAss_Assessment" Type="Self.tbl_RiskAss_Assessment" Multiplicity="1" />
+    <End Role="tbl_RiskAss_AssQuestion" Type="Self.tbl_RiskAss_AssQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_RiskAss_Assessment">
+        <PropertyRef Name="AssessmentTypeID" />
+      </Principal>
+      <Dependent Role="tbl_RiskAss_AssQuestion">
+        <PropertyRef Name="AssessmentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_RiskA__Asses__19DFD96B">
+    <End Role="tbl_RiskAss_Assessment" Type="Self.tbl_RiskAss_Assessment" Multiplicity="1" />
+    <End Role="tbl_RiskAss_Session" Type="Self.tbl_RiskAss_Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_RiskAss_Assessment">
+        <PropertyRef Name="AssessmentTypeID" />
+      </Principal>
+      <Dependent Role="tbl_RiskAss_Session">
+        <PropertyRef Name="AssessmentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_RiskA__Quest__18EBB532">
+    <End Role="tbl_RiskAss_Questions" Type="Self.tbl_RiskAss_Questions" Multiplicity="1" />
+    <End Role="tbl_RiskAss_AssQuestion" Type="Self.tbl_RiskAss_AssQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_RiskAss_Questions">
+        <PropertyRef Name="QuestionID" />
+      </Principal>
+      <Dependent Role="tbl_RiskAss_AssQuestion">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="fall_reliefModelStoreContainer">
+    <EntitySet Name="tbl_RiskAss_Assessment" EntityType="Self.tbl_RiskAss_Assessment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RiskAss_AssQuestion" EntityType="Self.tbl_RiskAss_AssQuestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RiskAss_Questions" EntityType="Self.tbl_RiskAss_Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RiskAss_ResponseChoice" EntityType="Self.tbl_RiskAss_ResponseChoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RiskAss_Session" EntityType="Self.tbl_RiskAss_Session" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Risk_Ass___Quest__1CBC4616" Association="Self.FK__Risk_Ass___Quest__1CBC4616">
+      <End Role="tbl_RiskAss_Questions" EntitySet="tbl_RiskAss_Questions" />
+      <End Role="tbl_RiskAss_ResponseChoice" EntitySet="tbl_RiskAss_ResponseChoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_RiskA__Asses__151B244E" Association="Self.FK__tbl_RiskA__Asses__151B244E">
+      <End Role="tbl_RiskAss_Assessment" EntitySet="tbl_RiskAss_Assessment" />
+      <End Role="tbl_RiskAss_AssQuestion" EntitySet="tbl_RiskAss_AssQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_RiskA__Asses__19DFD96B" Association="Self.FK__tbl_RiskA__Asses__19DFD96B">
+      <End Role="tbl_RiskAss_Assessment" EntitySet="tbl_RiskAss_Assessment" />
+      <End Role="tbl_RiskAss_Session" EntitySet="tbl_RiskAss_Session" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_RiskA__Quest__18EBB532" Association="Self.FK__tbl_RiskA__Quest__18EBB532">
+      <End Role="tbl_RiskAss_Questions" EntitySet="tbl_RiskAss_Questions" />
+      <End Role="tbl_RiskAss_AssQuestion" EntitySet="tbl_RiskAss_AssQuestion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

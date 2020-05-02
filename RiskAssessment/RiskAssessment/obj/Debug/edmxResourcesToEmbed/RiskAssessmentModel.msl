@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fall_reliefModelStoreContainer" CdmEntityContainer="fall_reliefEntities">
+    <EntitySetMapping Name="tbl_RiskAss_Assessment">
+      <EntityTypeMapping TypeName="fall_reliefModel.tbl_RiskAss_Assessment">
+        <MappingFragment StoreEntitySet="tbl_RiskAss_Assessment">
+          <ScalarProperty Name="TotalNoOfQuestions" ColumnName="TotalNoOfQuestions" />
+          <ScalarProperty Name="AssessmentTypeID" ColumnName="AssessmentTypeID" />
+          <ScalarProperty Name="AssessmentType" ColumnName="AssessmentType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RiskAss_Session">
+      <EntityTypeMapping TypeName="fall_reliefModel.tbl_RiskAss_Session">
+        <MappingFragment StoreEntitySet="tbl_RiskAss_Session">
+          <ScalarProperty Name="AssessmentNo" ColumnName="AssessmentNo" />
+          <ScalarProperty Name="sessionToken" ColumnName="sessionToken" />
+          <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+          <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+          <ScalarProperty Name="AssessmentTypeID" ColumnName="AssessmentTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RiskAss_Questions">
+      <EntityTypeMapping TypeName="fall_reliefModel.tbl_RiskAss_Questions">
+        <MappingFragment StoreEntitySet="tbl_RiskAss_Questions">
+          <ScalarProperty Name="AnswerType" ColumnName="AnswerType" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="QuestionSection" ColumnName="QuestionSection" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RiskAss_AssQuestion">
+      <EntityTypeMapping TypeName="fall_reliefModel.tbl_RiskAss_AssQuestion">
+        <MappingFragment StoreEntitySet="tbl_RiskAss_AssQuestion">
+          <ScalarProperty Name="QuestionNumber" ColumnName="QuestionNumber" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="AssessmentTypeID" ColumnName="AssessmentTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RiskAss_ResponseChoice">
+      <EntityTypeMapping TypeName="fall_reliefModel.tbl_RiskAss_ResponseChoice">
+        <MappingFragment StoreEntitySet="tbl_RiskAss_ResponseChoice">
+          <ScalarProperty Name="RiskScore" ColumnName="RiskScore" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
