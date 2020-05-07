@@ -19,13 +19,13 @@ namespace RiskAssessment.Models
         public List<ResponseModel> UserReponse { get; set; }
         public string Answer { get; set; }
         public string Direction { get; set; }
-    
+
         public List<int> UserSelectedID
         {
-            get 
+            get
             {
                 return UserReponse == null ? new List<int>() :
-                    UserReponse.Where(x=> x.IsChecked == "on" || "true".Equals(x.IsChecked, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.ResponseID).ToList();
+                    UserReponse.Where(x => x.IsChecked == "on" || "true".Equals(x.IsChecked, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.ResponseID).ToList();
             }
         }
     }

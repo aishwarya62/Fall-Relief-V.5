@@ -216,6 +216,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\flaticon.css" />
     <Content Include="Content\homepage %27 %281%29.jpg" />
+    <Content Include="Content\homepage %27.jpg" />
     <Content Include="Content\icomoon.css" />
     <Content Include="Content\ionicons.min.css" />
     <Content Include="Content\magnific-popup.css" />
@@ -263,6 +264,9 @@
     <Content Include="fonts\ionicons.ttf" />
     <Content Include="fonts\ionicons.woff" />
     <Content Include="fonts\ionicons.woff2" />
+    <None Include="Properties\PublishProfiles\fallrelief - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\fallrelief - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\fallrelief - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\google-map.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />

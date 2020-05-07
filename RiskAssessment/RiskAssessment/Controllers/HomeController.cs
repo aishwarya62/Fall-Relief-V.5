@@ -9,7 +9,11 @@ namespace RiskAssessment.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult testflaticon()
+        {
+            return View();
 
+        }
         public ActionResult Index()
         {
             return View();
@@ -141,10 +145,10 @@ namespace RiskAssessment.Controllers
                 {
                     _model.Options.Where(x => x.ResponseID == savedAnswer.responseID).FirstOrDefault().Answer = savedAnswer.Answer;
                 }
+
                 _model.TotalQuestionNo = _ctx.tbl_RiskAss_AssQuestion.Where(x => x.AssessmentTypeID == asessment.AssessmentTypeID).Count();
 
                 return View(_model);
-
             }
 
             else
@@ -152,9 +156,8 @@ namespace RiskAssessment.Controllers
 
                 return View("Error");
             }
-            
-        }
 
+        }
         [HttpPost]
         public ActionResult PostAnswer(AnswerModel repsonses)
         {
@@ -243,6 +246,8 @@ namespace RiskAssessment.Controllers
             });
 
         }
+
+
 
     }
 }
