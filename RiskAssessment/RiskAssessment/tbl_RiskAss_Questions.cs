@@ -19,16 +19,26 @@ namespace RiskAssessment
         {
             this.tbl_RiskAss_AssQuestion = new HashSet<tbl_RiskAss_AssQuestion>();
             this.tbl_RiskAss_ResponseChoice = new HashSet<tbl_RiskAss_ResponseChoice>();
+            this.tbl_ActionPlan_HomeSafety = new HashSet<tbl_ActionPlan_HomeSafety>();
+            this.tbl_ActionPlan_Nutrition = new HashSet<tbl_ActionPlan_Nutrition>();
+            this.tbl_ActionPlan_RiskStatement = new HashSet<tbl_ActionPlan_RiskStatement>();
         }
     
         public int QuestionID { get; set; }
         public string QuestionSection { get; set; }
         public string Question { get; set; }
         public string AnswerType { get; set; }
+        public Nullable<int> RiskScore { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_RiskAss_AssQuestion> tbl_RiskAss_AssQuestion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_RiskAss_ResponseChoice> tbl_RiskAss_ResponseChoice { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_ActionPlan_HomeSafety> tbl_ActionPlan_HomeSafety { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_ActionPlan_Nutrition> tbl_ActionPlan_Nutrition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_ActionPlan_RiskStatement> tbl_ActionPlan_RiskStatement { get; set; }
     }
 }

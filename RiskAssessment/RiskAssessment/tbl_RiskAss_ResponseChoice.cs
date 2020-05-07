@@ -14,11 +14,20 @@ namespace RiskAssessment
     
     public partial class tbl_RiskAss_ResponseChoice
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbl_RiskAss_ResponseChoice()
+        {
+            this.tbl_RiskAss_AssessmentResponse = new HashSet<tbl_RiskAss_AssessmentResponse>();
+        }
+    
         public int ID { get; set; }
         public int QuestionID { get; set; }
         public string Response { get; set; }
-        public Nullable<int> RiskScore { get; set; }
+        public int RiskScore { get; set; }
+        public bool actionRequired { get; set; }
     
         public virtual tbl_RiskAss_Questions tbl_RiskAss_Questions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_RiskAss_AssessmentResponse> tbl_RiskAss_AssessmentResponse { get; set; }
     }
 }

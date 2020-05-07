@@ -7,7 +7,7 @@ namespace RiskAssessment.Models
 {
     public class ResponseModel
     {
-        public int responseID { set; get; }
+        public int ResponseID { set; get; }
         public string IsChecked { set; get; }
     }
 
@@ -25,7 +25,7 @@ namespace RiskAssessment.Models
             get 
             {
                 return UserReponse == null ? new List<int>() :
-                    UserReponse.Where(x=> x.IsChecked == "on" || "true".Equals(x.IsChecked, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.responseID).ToList();
+                    UserReponse.Where(x=> x.IsChecked == "on" || "true".Equals(x.IsChecked, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.ResponseID).ToList();
             }
         }
     }

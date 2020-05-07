@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Rui\Desktop\Risk Assessment\RiskAssessment\RiskAssessment\RiskAssessmentModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Aishwarya\Source\Repos\FallRlief-V3.1\RiskAssessment\RiskAssessment\RiskAssessmentModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

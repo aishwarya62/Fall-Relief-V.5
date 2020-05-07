@@ -30,5 +30,16 @@ namespace RiskAssessment
         public virtual DbSet<tbl_RiskAss_Questions> tbl_RiskAss_Questions { get; set; }
         public virtual DbSet<tbl_RiskAss_AssQuestion> tbl_RiskAss_AssQuestion { get; set; }
         public virtual DbSet<tbl_RiskAss_ResponseChoice> tbl_RiskAss_ResponseChoice { get; set; }
+        public virtual DbSet<vw_RiskAss_RiskLevel> vw_RiskAss_RiskLevel { get; set; }
+        public virtual DbSet<vw_RiskAss_RiskStatement> vw_RiskAss_RiskStatement { get; set; }
+        public virtual DbSet<tbl_RiskAss_AssessmentResponse> tbl_RiskAss_AssessmentResponse { get; set; }
+        public virtual DbSet<tbl_RiskAss_RiskLevel> tbl_RiskAss_RiskLevel { get; set; }
+        public virtual DbSet<tbl_ActionPlan_FoodNutrient> tbl_ActionPlan_FoodNutrient { get; set; }
+        public virtual DbSet<tbl_ActionPlan_HomeSafety> tbl_ActionPlan_HomeSafety { get; set; }
+        public virtual DbSet<tbl_ActionPlan_Nutrient> tbl_ActionPlan_Nutrient { get; set; }
+        public virtual DbSet<tbl_ActionPlan_Nutrition> tbl_ActionPlan_Nutrition { get; set; }
+        public virtual DbSet<tbl_ActionPlan_RiskStatement> tbl_ActionPlan_RiskStatement { get; set; }
+        public virtual DbSet<vw_ActionPlan_HomeSafety> vw_ActionPlan_HomeSafety { get; set; }
+        public virtual DbSet<vw_ActionPlan_Nutrition> vw_ActionPlan_Nutrition { get; set; }
     }
 }

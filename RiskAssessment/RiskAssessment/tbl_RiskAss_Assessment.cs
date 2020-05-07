@@ -19,6 +19,7 @@ namespace RiskAssessment
         {
             this.tbl_RiskAss_AssQuestion = new HashSet<tbl_RiskAss_AssQuestion>();
             this.tbl_RiskAss_Session = new HashSet<tbl_RiskAss_Session>();
+            this.tbl_RiskAss_RiskLevel = new HashSet<tbl_RiskAss_RiskLevel>();
         }
     
         public int AssessmentTypeID { get; set; }
@@ -31,5 +32,7 @@ namespace RiskAssessment
         public virtual ICollection<tbl_RiskAss_AssQuestion> tbl_RiskAss_AssQuestion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_RiskAss_Session> tbl_RiskAss_Session { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_RiskAss_RiskLevel> tbl_RiskAss_RiskLevel { get; set; }
     }
 }
